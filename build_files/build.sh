@@ -10,7 +10,20 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 -y install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+dnf5 -y install libva-nvidia-driver
+
+dnf5 -y install gnome-text-editor gnome-calculator gnome-clocks baobab gnome-contacts simple-scan papers loupe showtime decibels gstreamer1-plugins-ugly gstreamer1-plugins-bad-free-extras gstreamer1-plugins-good-extras adw-gtk3-theme
+
+dnf5 -y install --setopt=install_weak_deps=false gnome-calendar
+
+dnf5 -y config-manager addrepo --from-repofile=https://sing-box.app/sing-box.repo
+dnf5 -y install sing-box
+dnf5 -y config-manager setopt sing-box.enabled=0
+
+dnf5 -y copr enable trixieua/morewaita-icon-theme
+dnf5 -y install morewaita-icon-theme
+dnf5 -y copr disable trixieua/morewaita-icon-theme
 
 # Use a COPR Example:
 #
