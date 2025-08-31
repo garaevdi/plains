@@ -13,7 +13,7 @@ set -ouex pipefail
 dnf5 -y install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 dnf5 -y install libva-nvidia-driver
 
-dnf5 -y install gnome-text-editor gnome-calculator gnome-clocks baobab gnome-contacts simple-scan papers loupe showtime decibels file-roller python3-pygit2 python3-dbus nautilus-python gstreamer1-plugins-ugly gstreamer1-plugins-bad-free-extras gstreamer1-plugins-good-extras adw-gtk3-theme steam-devices pop-launcher
+dnf5 -y install gnome-text-editor gnome-calculator gnome-clocks baobab gnome-contacts simple-scan papers loupe showtime decibels file-roller python3-pygit2 python3-dbus nautilus-python gstreamer1-plugins-ugly gstreamer1-plugins-bad-free-extras gstreamer1-plugins-good-extras adw-gtk3-theme steam-devices pop-launcher libvirt podman-compose
 
 dnf5 -y install --setopt=install_weak_deps=false gnome-calendar nextcloud-client
 
@@ -35,3 +35,4 @@ dnf5 -y copr disable trixieua/morewaita-icon-theme
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+systemctl enable libvirtd.service
