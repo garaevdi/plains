@@ -21,9 +21,9 @@ dnf5 -y copr enable trixieua/morewaita-icon-theme
 dnf5 -y install morewaita-icon-theme
 dnf5 -y copr disable trixieua/morewaita-icon-theme
 
-dnf5 -y config-manager addrepo --from-repofile=https://sing-box.app/sing-box.repo
-dnf5 -y install sing-box
-dnf5 -y config-manager setopt sing-box.enabled=0
+# dnf5 -y config-manager addrepo --from-repofile=https://sing-box.app/sing-box.repo
+# dnf5 -y install sing-box
+# dnf5 -y config-manager setopt sing-box.enabled=0
 
 # Use a COPR Example:
 #
