@@ -11,7 +11,7 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 dnf5 -y install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-dnf5 -y install libva-nvidia-driver
+# dnf5 -y install libva-nvidia-driver
 
 dnf5 -y install \
     gnome-text-editor \
@@ -31,25 +31,13 @@ dnf5 -y install \
     gstreamer1-plugins-good-extras \
     adw-gtk3-theme \
     steam-devices \
-    pop-launcher \
-    libvirt \
-    libvirt-daemon-kvm \
-    libvirt-nss \
-    podman-compose
+    pop-launcher
 
-dnf5 -y install --setopt=install_weak_deps=false gnome-calendar nextcloud-client
+dnf5 -y install --setopt=install_weak_deps=false gnome-calendar
 
 dnf5 -y copr enable trixieua/morewaita-icon-theme
 dnf5 -y install morewaita-icon-theme
 dnf5 -y copr disable trixieua/morewaita-icon-theme
-
-dnf5 -y copr enable ublue-os/packages
-dnf5 -y install ublue-os-libvirt-workarounds
-dnf5 -y copr disable ublue-os/packages
-
-dnf5 -y config-manager addrepo --from-repofile=https://sing-box.app/sing-box.repo
-dnf5 -y install sing-box
-dnf5 -y config-manager setopt sing-box.enabled=0
 
 # Use a COPR Example:
 #
@@ -61,4 +49,3 @@ dnf5 -y config-manager setopt sing-box.enabled=0
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
-systemctl enable libvirtd.service
