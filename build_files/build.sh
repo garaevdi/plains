@@ -31,13 +31,16 @@ dnf5 -y install \
     gstreamer1-plugins-good-extras \
     adw-gtk3-theme \
     steam-devices \
-    pop-launcher
+    pop-launcher \
+    btop
 
 dnf5 -y install --setopt=install_weak_deps=false gnome-calendar
 
 dnf5 -y copr enable trixieua/morewaita-icon-theme
 dnf5 -y install morewaita-icon-theme
 dnf5 -y copr disable trixieua/morewaita-icon-theme
+
+dnf5 -y remove firefox yelp gnome-tour nvtop htop
 
 # Use a COPR Example:
 #
