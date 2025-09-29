@@ -32,9 +32,10 @@ dnf5 -y install \
     adw-gtk3-theme \
     steam-devices \
     pop-launcher \
-    btop
+    btop \
+    blueman
 
-dnf5 -y install --setopt=install_weak_deps=false gnome-calendar
+dnf5 -y install --setopt=install_weak_deps=false gnome-calendar niri swww swaylock swayidle
 
 dnf5 -y copr enable trixieua/morewaita-icon-theme
 dnf5 -y install morewaita-icon-theme
@@ -52,3 +53,4 @@ dnf5 -y remove firefox yelp gnome-tour nvtop htop
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+
