@@ -35,11 +35,15 @@ dnf5 -y install \
     btop \
     blueman
 
-dnf5 -y install --setopt=install_weak_deps=false gnome-calendar niri swww swaylock swayidle
+dnf5 -y install --setopt=install_weak_deps=false gnome-calendar niri swayidle
 
 dnf5 -y copr enable trixieua/morewaita-icon-theme
 dnf5 -y install morewaita-icon-theme
 dnf5 -y copr disable trixieua/morewaita-icon-theme
+
+dnf5 -y copr enable solopasha/hyprland
+dnf5 -y install swww hyprlock
+dnf5 -y copr disable solopasha/hyprland
 
 dnf5 -y remove firefox yelp gnome-tour nvtop htop
 
