@@ -34,7 +34,8 @@ dnf5 -y install \
     pop-launcher \
     btop \
     blueman \
-    mate-polkit
+    mate-polkit \
+	gtk4-layer-shell
     
 dnf5 -y install --setopt=install_weak_deps=false gnome-calendar niri swayidle
 
@@ -43,7 +44,7 @@ dnf5 -y install morewaita-icon-theme
 dnf5 -y copr disable trixieua/morewaita-icon-theme
 
 dnf5 -y copr enable solopasha/hyprland
-dnf5 -y install swww hyprlock
+dnf5 -y install swww hyprlock astal-libs
 dnf5 -y copr disable solopasha/hyprland
 
 dnf5 -y remove firefox yelp gnome-tour nvtop htop
