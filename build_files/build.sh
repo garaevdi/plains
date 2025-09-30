@@ -33,8 +33,9 @@ dnf5 -y install \
     steam-devices \
     pop-launcher \
     btop \
-    blueman
-
+    blueman \
+    mate-polkit
+    
 dnf5 -y install --setopt=install_weak_deps=false gnome-calendar niri swayidle
 
 dnf5 -y copr enable trixieua/morewaita-icon-theme
