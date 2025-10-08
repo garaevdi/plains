@@ -31,7 +31,8 @@ dnf5 -y install \
     gstreamer1-plugins-good-extras \
     adw-gtk3-theme \
     steam-devices \
-    pop-launcher
+    pop-launcher \
+	fish
     
 dnf5 -y install --setopt=install_weak_deps=false gnome-calendar
 
