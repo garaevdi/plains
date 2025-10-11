@@ -14,6 +14,12 @@ dnf5 -y install @multimedia --setopt="install_weak_deps=False" --exclude=Package
 # dnf5 -y install libva-nvidia-driver
 
 dnf5 -y install \
+    okular \
+    gwenview \
+    kcalc \
+    ksystemlog \
+    elisa-player \
+    merkuro \
     gstreamer1-plugins-ugly \
     gstreamer1-plugins-bad-free-extras \
     gstreamer1-plugins-good-extras \
