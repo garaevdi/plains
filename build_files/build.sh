@@ -32,6 +32,10 @@ dnf5 -y copr enable matinlotfali/KDE-Rounded-Corners
 dnf5 -y install kwin-effect-roundcorners
 dnf5 -y copr disable matinlotfali/KDE-Rounded-Corners
 
+dnf5 -y copr enable deltacopy/darkly 
+dnf5 -y install darkly
+dnf5 -y copr disable deltacopy/darkly 
+
 dnf5 -y remove firefox nvtop htop
 
 # Use a COPR Example:
