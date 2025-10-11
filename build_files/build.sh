@@ -14,18 +14,6 @@ dnf5 -y install @multimedia --setopt="install_weak_deps=False" --exclude=Package
 # dnf5 -y install libva-nvidia-driver
 
 dnf5 -y install \
-    gnome-text-editor \
-    gnome-calculator \
-    gnome-clocks baobab \
-    gnome-contacts \
-    simple-scan papers \
-    loupe \
-    showtime \
-    decibels \
-    file-roller \
-    python3-pygit2 \
-    python3-dbus \
-    nautilus-python \
     gstreamer1-plugins-ugly \
     gstreamer1-plugins-bad-free-extras \
     gstreamer1-plugins-good-extras \
@@ -34,13 +22,21 @@ dnf5 -y install \
     pop-launcher \
 	fish
     
-dnf5 -y install --setopt=install_weak_deps=false gnome-calendar
+# dnf5 -y install --setopt=install_weak_deps=false gnome-calendar
 
-dnf5 -y copr enable trixieua/morewaita-icon-theme
-dnf5 -y install morewaita-icon-theme
-dnf5 -y copr disable trixieua/morewaita-icon-theme
+# dnf5 -y copr enable trixieua/morewaita-icon-theme
+# dnf5 -y install morewaita-icon-theme
+# dnf5 -y copr disable trixieua/morewaita-icon-theme
 
-dnf5 -y remove firefox yelp gnome-tour nvtop htop
+dnf5 -y copr enable matinlotfali/KDE-Rounded-Corners
+dnf5 -y install kwin-effect-roundcorners
+dnf5 -y copr disable matinlotfali/KDE-Rounded-Corners
+
+dnf5 -y copr enable deltacopy/darkly 
+dnf5 -y install darkly
+dnf5 -y copr disable deltacopy/darkly 
+
+dnf5 -y remove firefox nvtop htop
 
 # Use a COPR Example:
 #
