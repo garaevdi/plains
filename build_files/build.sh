@@ -36,7 +36,7 @@ dnf5 -y copr enable deltacopy/darkly
 dnf5 -y install darkly
 dnf5 -y copr disable deltacopy/darkly 
 
-dnf5 -y remove firefox nvtop htop
+dnf5 -y remove firefox nvtop htop supergfxctl kdebugsettings fcitx5 ibus
 
 # Use a COPR Example:
 #
