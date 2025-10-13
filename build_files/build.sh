@@ -17,18 +17,36 @@ dnf5 -y install \
     nautilus \
     ptyxis \
     gnome-software \
+    mate-polkit \
     gstreamer1-plugins-ugly \
     gstreamer1-plugins-bad-free-extras \
     gstreamer1-plugins-good-extras \
     adw-gtk3-theme \
     steam-devices \
-	fish
+	fish \
+    gnome-keyring \
+    desktop-file-utils \
+    xdg-user-dirs \
+    swayidle
     
-dnf5 -y install --setopt=install_weak_deps=false niri fuzzel
+    
+dnf5 -y install --setopt=install_weak_deps=false \
+    niri \
+    fuzzel \
+    gnome-control-center \
+    NetworkManager-wifi \
+    nm-connection-editor \
+    ppd-service \
+    power-profiles-daemon
 
 dnf5 -y copr enable trixieua/morewaita-icon-theme
 dnf5 -y install morewaita-icon-theme
 dnf5 -y copr disable trixieua/morewaita-icon-theme
+
+dnf5 -y copr enable solopasha/hyprland 
+dnf5 -y install swww hyprlock
+dnf5 -y copr disable solopasha/hyprland 
+
 
 dnf5 -y remove firefox nvtop htop
 
