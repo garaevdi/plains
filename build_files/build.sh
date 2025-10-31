@@ -26,10 +26,11 @@ dnf5 -y install \
     steam-devices \
 	fish \
     gnome-keyring \
+	gcr \
     desktop-file-utils \
     xdg-user-dirs \
     swayidle \
-	iotop
+	iotop-c
     
     
 dnf5 -y install --setopt=install_weak_deps=false \
