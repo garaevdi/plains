@@ -28,7 +28,8 @@ dnf5 -y install \
     gnome-keyring \
     desktop-file-utils \
     xdg-user-dirs \
-    swayidle
+    swayidle \
+	iotop
     
     
 dnf5 -y install --setopt=install_weak_deps=false \
