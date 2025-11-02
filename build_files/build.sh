@@ -42,6 +42,8 @@ dnf5 -y copr enable solopasha/hyprland
 dnf5 -y install swww hyprlock
 dnf5 -y copr disable solopasha/hyprland 
 
+dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra43' terra-release
+dnf5 -y install opentabletdriver
 
 dnf5 -y remove firefox nvtop htop
 
