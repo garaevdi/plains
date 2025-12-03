@@ -22,11 +22,11 @@ dnf5 -y install \
     gcr \
     desktop-file-utils \
     xdg-user-dirs \
-    swayidle \
-    iotop-c
+    iotop-c \
+    greetd \
+    tuigreet
 
 dnf5 -y install --setopt=install_weak_deps=false \
-    niri \
     fuzzel \
     gnome-control-center \
     NetworkManager-wifi \
@@ -39,7 +39,8 @@ dnf5 -y install morewaita-icon-theme
 dnf5 -y copr disable trixieua/morewaita-icon-theme
 
 dnf5 -y copr enable solopasha/hyprland 
-dnf5 -y install swww hyprlock
+dnf5 -y install swww
+dnf5 -y install --setopt=install_weak_deps=false hyprland hyprlock hypridle uwsm
 dnf5 -y copr disable solopasha/hyprland 
 
 dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra43' terra-release
