@@ -45,7 +45,7 @@ dnf5 -y copr disable solopasha/hyprland
 dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra43' terra-release
 dnf5 -y install opentabletdriver
 
-dnf5 -y remove firefox nvtop htop
+dnf5 -y remove firefox nvtop htop qt5-qtbase
 
 ### Example for enabling a System Unit File
 
