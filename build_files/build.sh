@@ -26,7 +26,6 @@ dnf5 -y install \
     iotop-c
 
 dnf5 -y install --setopt=install_weak_deps=false \
-    niri \
     fuzzel \
     gnome-control-center \
     NetworkManager-wifi \
@@ -41,6 +40,10 @@ dnf5 -y copr disable trixieua/morewaita-icon-theme
 dnf5 -y copr enable solopasha/hyprland 
 dnf5 -y install swww hyprlock
 dnf5 -y copr disable solopasha/hyprland 
+
+dnf5 -y copr enable yalter/niri
+dnf5 -y install --setopt=install_weak_deps=false niri
+dnf5 -y copr disable yalter/niri
 
 dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra43' terra-release
 dnf5 -y install opentabletdriver
