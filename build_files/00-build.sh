@@ -2,6 +2,8 @@
 
 set -ouex pipefail
 
+cp -avf "/ctx/files"/. /
+
 ### Install packages
 
 dnf5 -y install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
@@ -49,5 +51,5 @@ dnf5 -y remove firefox nvtop htop
 
 ### Example for enabling a System Unit File
 
-systemctl enable podman.socket
+systemctl enable rechunker-group-fix.service
 
