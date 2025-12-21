@@ -1,6 +1,7 @@
-export image_name := env("IMAGE_NAME", "plains") # output image name, usually same as repo name, change as needed
+export image_name := env("IMAGE_NAME", "plains-main")
 export default_tag := env("DEFAULT_TAG", "latest")
 export bib_image := env("BIB_IMAGE", "quay.io/centos-bootc/bootc-image-builder:latest")
+export build_flavour := env("BUILD_FLAVOUR", "")
 
 alias build-vm := build-qcow2
 alias rebuild-vm := rebuild-qcow2
@@ -89,10 +90,11 @@ sudoif command *args:
 build $target_image=image_name $tag=default_tag:
     #!/usr/bin/env bash
 
-    BUILD_ARGS=()
+    BUILD_ARGS=("--build-arg=")
     if [[ -z "$(git status -s)" ]]; then
-        BUILD_ARGS+=("--build-arg" "SHA_HEAD_SHORT=$(git rev-parse --short HEAD)")
+        BUILD_ARGS+=("SHA_HEAD_SHORT=$(git rev-parse --short HEAD)")
     fi
+    BUILD_ARGS+="BUILD_FLAVOUR={{build_flavour}}"
 
     podman build \
         "${BUILD_ARGS[@]}" \
@@ -292,7 +294,6 @@ spawn-vm rebuild="0" type="qcow2" ram="6G":
       --network-user-mode \
       --vsock=false --pass-ssh-key=false \
       -i ./output/**/*.{{ type }}
-
 
 # Runs shell check on all Bash scripts
 lint:

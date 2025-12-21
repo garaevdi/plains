@@ -2,6 +2,8 @@
 
 set -ouex pipefail
 
+cp -avf "/ctx/files"/. /
+
 ### Install packages
 
 dnf5 -y install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
@@ -12,8 +14,6 @@ dnf5 -y install \
     gnome-software \
     xdg-desktop-portal-gnome \
     mate-polkit \
-    gstreamer1-plugins-ugly \
-    gstreamer1-plugins-bad-free-extras \
     gstreamer1-plugins-good-extras \
     adw-gtk3-theme \
     steam-devices \
@@ -26,7 +26,6 @@ dnf5 -y install \
     iotop-c
 
 dnf5 -y install --setopt=install_weak_deps=false \
-    niri \
     fuzzel \
     gnome-control-center \
     NetworkManager-wifi \
@@ -42,12 +41,16 @@ dnf5 -y copr enable solopasha/hyprland
 dnf5 -y install swww hyprlock
 dnf5 -y copr disable solopasha/hyprland 
 
+dnf5 -y copr enable yalter/niri
+dnf5 -y install --setopt=install_weak_deps=false niri
+dnf5 -y copr disable yalter/niri
+
 dnf5 -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra43' terra-release
 dnf5 -y install opentabletdriver
 
-dnf5 -y remove firefox nvtop htop
+dnf5 -y remove firefox nvtop htop qt5-qtbase
 
 ### Example for enabling a System Unit File
 
-systemctl enable podman.socket
+systemctl enable rechunker-group-fix.service
 
