@@ -116,13 +116,15 @@ jobs:
 
       - name: Build image (rootful)
         id: build_image
+        env:
+            FLAVOUR: ${{ matrix.flavour }}
         run: |
           # Builds image in root store as root, to be picked up by Rechunker
           sudo buildah bud \
             --format docker \
             --tag "localhost/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}" \
             --file Containerfile \
-            --build-arg flavour=${{ matrix.flavour }}
+            --build-arg FLAVOUR=${{ matrix.flavour }}
 
       # Rechunk is a script that we use on Universal Blue to make sure there isnt a single huge layer when your image gets published.
       # This does not make your image faster to download, just provides better resumability and fixes a few errors.
