@@ -14,8 +14,6 @@ dnf5 -y install \
     gnome-software \
     xdg-desktop-portal-gnome \
     mate-polkit \
-    gstreamer1-plugins-ugly \
-    gstreamer1-plugins-bad-free-extras \
     gstreamer1-plugins-good-extras \
     adw-gtk3-theme \
     steam-devices \

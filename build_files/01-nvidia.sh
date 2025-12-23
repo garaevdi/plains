@@ -1,12 +1,13 @@
 #!/bin/bash
 
-if [[ ! "${FLAVOUR}" =~ "nvidia" ]] ; then
+if [[ ! "${BUILD_FLAVOUR}" =~ "nvidia" ]] ; then
     exit 0
 fi
 
 set -ouex pipefail
 
-RELEASE="${rpm -E %fedora}"
+RELEASE="$(rpm -E %fedora)"
+KERNEL_VERSION="$(rpm -q --queryformat '%{VERSION}-%{RELEASE}-%{ARCH}' kernel)"
 : "${AKMODS_PATH:=/tmp/akmods-nvidia}"
 
 find "${AKMODS_PATH}"/
@@ -38,7 +39,7 @@ dnf5 -y install \
     nvidia-modprobe \
     nvidia-persistenced \
     nvidia-settings \
-    "${AKMODS_PATH}"/kmods/kmod-nvidia-*.rpm
+    "${AKMODS_PATH}"/kmods/kmod-nvidia-${KERNEL_VERSION}*.rpm
 
 KMOD_VERSION="$(rpm -q --queryformat '%{VERSION}' kmod-nvidia)"
 DRIVER_VERSION="$(rpm -q --queryformat '%{VERSION}' nvidia-driver)"
@@ -49,7 +50,7 @@ fi
 
 dnf5 config-manager setopt fedora-nvidia.enabled=0
 
-sed -i "s/^MODULE_VARIANT=.*/MODULE_VARIANT=$KERNEL_MODULE_TYPE/" /etc/nvidia/kernel.conf
+# sed -i "s/^MODULE_VARIANT=.*/MODULE_VARIANT=$KERNEL_MODULE_TYPE/" /etc/nvidia/kernel.conf
 
 cp /etc/modprobe.d/nvidia-modeset.conf /usr/lib/modprobe.d/nvidia-modeset.conf
 sed -i 's@omit_drivers@force_drivers@g' /usr/lib/dracut/dracut.conf.d/99-nvidia.conf
