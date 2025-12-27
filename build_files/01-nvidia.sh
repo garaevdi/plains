@@ -57,6 +57,15 @@ cp /etc/modprobe.d/nvidia-modeset.conf /usr/lib/modprobe.d/nvidia-modeset.conf
 sed -i 's@omit_drivers@force_drivers@g' /usr/lib/dracut/dracut.conf.d/99-nvidia.conf
 sed -i 's@ nvidia @ i915 amdgpu nvidia @g' /usr/lib/dracut/dracut.conf.d/99-nvidia.conf
 
+tee /usr/lib/modprobe.d/00-nouveau-blacklist.conf <<'EOF'
+blacklist nouveau
+options nouveau modeset=0
+EOF
+
+tee /usr/lib/bootc/kargs.d/00-nvidia.toml <<'EOF'
+kargs = ["rd.driver.blacklist=nouveau", "modprobe.blacklist=nouveau", "nvidia-drm.modeset=1"]
+EOF
+
 if [[ "${NEGATIVO17_MULT_PREV_ENABLED}" = "Y" ]]; then
     dnf5 config-manager setopt fedora-multimedia.enabled=1
 fi
